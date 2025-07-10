@@ -77,4 +77,24 @@ public class HomePage_Flights {
     */
     /* The Departure date should be greater than or equal to the return date */
 
+    public static By verfiyMonth(String month){
+        return By.xpath(String.format("//h2[normalize-space()='%s']", month));
+        //get text from the xpath and match with the month given in selectDepartDate
+        //same for return date
+    }
+
+    @FindBy(xpath = "//button[contains(@aria-label, 'Next month')]")
+    private WebElement goToNextMonth; // click operation, after clicking, assert the month you are in
+
+    @FindBy(xpath = "//button[contains(@aria-label, 'Previous month')]")
+    private WebElement goToPreviousMonth; // click operation, after clicking, assert the month you are in
+
+    @FindBy(css = "button[id='1']")
+    private WebElement flexibleDates;
+
+    @FindBy(css = "button[id='0']")
+    private WebElement specificDates; //by default specific date is selected
+
+    @FindBy(xpath = "//button[normalize-space()='Apply']")
+    private WebElement datePickerApply; // click operation, after selecting dates
 }
