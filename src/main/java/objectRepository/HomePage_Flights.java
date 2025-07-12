@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import utility.Utils;
 
 public class HomePage_Flights {
     private final WebDriver driver;
@@ -96,5 +97,14 @@ public class HomePage_Flights {
     private WebElement specificDates; //by default specific date is selected
 
     @FindBy(xpath = "//button[normalize-space()='Apply']")
-    private WebElement datePickerApply; // click operation, after selecting dates
+    private WebElement datePickerApply; // click operation, after selecting dates.Scroll to the element and click like below
+//    public void scrollAndClickApplyButton() {
+//        Utils.scrollToElement(driver, datePickerApply);
+//        datePickerApply.click();
+//    }
+    @FindBy(xpath = "//button[@data-testid='traveller-button']")
+    private WebElement travellerCabinClass; // onClick, the selection window will be displayed
+
+
+
 }
