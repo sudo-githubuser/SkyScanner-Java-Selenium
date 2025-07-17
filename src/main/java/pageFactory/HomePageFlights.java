@@ -56,6 +56,10 @@ public class HomePageFlights {
         homePageFlightsObjects.getFirstCityFromDestinationCityDropdown().sendKeys(Keys.ARROW_DOWN, Keys.ENTER);
     }
 
+    public void openDatePicker(){
+        homePageFlightsObjects.getDepartDateField().click();
+    }
+
     public void departDate(){
         String departMonth = homePageFlightsObjects.getDepartDate().getText();
         System.out.printf("Departed month is '%s'", departMonth); //Assert it with the departure date providing through excel
@@ -66,5 +70,31 @@ public class HomePageFlights {
         String returnMonth = homePageFlightsObjects.getReturnDate().getText();
         System.out.printf("Return month is '%s'", returnMonth); //Assert it with the return date providing through excel
         homePageFlightsObjects.selectReturnDate("04 August 2025");
+    }
+
+    public void applyDates(){
+        Utils.scrollToElement(driver, homePageFlightsObjects.getDatePickerApply());
+        homePageFlightsObjects.getDatePickerApply().click();
+    }
+
+    public void travelCabinClass(){
+        homePageFlightsObjects.getTravellerCabinClass().click();
+    }
+
+    public void cabinClassSelection(){
+        Utils.selectByVisibleText(homePageFlightsObjects.getCabinClassDropdown(), "Premium Economy");
+    }
+
+    public void passengerCount(){
+        homePageFlightsObjects.adjustPassengerCount(driver, "Adult", 4);
+    }
+
+    public void applyTravelCabinClass(){
+        Utils.scrollToElement(driver, homePageFlightsObjects.getTravellerAndCabinClassApply());
+        homePageFlightsObjects.getTravellerAndCabinClassApply().click();
+    }
+
+    public void searchFlight(){
+        homePageFlightsObjects.getSearchFlights().click();
     }
 }

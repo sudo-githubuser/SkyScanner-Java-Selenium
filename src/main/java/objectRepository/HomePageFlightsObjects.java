@@ -68,9 +68,9 @@ public class HomePageFlightsObjects {
     @FindBy(xpath = ".//div[@class='CustomCalendar_CalendarsContainer__ZGIwN']/div[1]/h2")
     private WebElement departDate;
 
-    public WebElement selectDepartDate(String departureDate){
+    public void selectDepartDate(String departureDate){
         var dDate =  By.xpath(String.format("//button[contains(@aria-label, '%s') and contains(@aria-label, 'Select as departure date')]", departureDate));
-        return driver.findElement(dDate);
+        driver.findElement(dDate);
         //give departureDate = 16 July 2025
         /* ("//button[@aria-label='%s. Select as departure date']", departureDate)
           give departureDate = Wednesday, 16 July 2025 */
@@ -80,9 +80,9 @@ public class HomePageFlightsObjects {
     @FindBy(xpath = ".//div[@class='CustomCalendar_CalendarsContainer__ZGIwN']/div[2]/h2")
     private WebElement returnDate;
 
-    public WebElement selectReturnDate(String returnDate){
+    public void selectReturnDate(String returnDate){
         var rDate = By.xpath(String.format("//button[contains(@aria-label, '%s') and contains(@aria-label, 'Select as return date')]", returnDate));
-        return driver.findElement(rDate);
+        driver.findElement(rDate);
     }
 
     /*
@@ -91,7 +91,7 @@ public class HomePageFlightsObjects {
     */
     /* The Departure date should be greater than or equal to the return date */
 
-    public static By verfiyMonth(String month){
+    public static By verifyMonth(String month){
         return By.xpath(String.format("//h2[normalize-space()='%s']", month));
         //get text from the xpath and match with the month given in selectDepartDate
         //same for return date
@@ -140,7 +140,7 @@ public class HomePageFlightsObjects {
      * @param passengerType "Adults" or "Children"
      * @param expectedCount Desired number of passengers
      */
-    public static void adjustPassengerCount(WebDriver driver, String passengerType, int expectedCount) {
+    public void adjustPassengerCount(WebDriver driver, String passengerType, int expectedCount) {
         var moreButtonLocator = By.xpath(String.format("//button[@title='More %s']", passengerType));
         var fewerButtonLocator = By.xpath(String.format("//button[@title='Fewer %s']", passengerType));
         var countDisplayLocator = By.cssSelector("#" + passengerType.toLowerCase() + "-nudger");
