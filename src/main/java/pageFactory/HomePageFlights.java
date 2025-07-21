@@ -14,13 +14,14 @@ public class HomePageFlights {
     WebDriver driver;
     WebDriverWait wait;
     HomePageFlightsObjects homePageFlightsObjects;
-    Utils util;
 
-    public HomePageFlights(WebDriver driver, HomePageFlightsObjects homePageFlightsObjects, Utils util){
+    public HomePageFlights(WebDriver driver){
+        if (driver == null) {
+            throw new IllegalArgumentException("WebDriver cannot be null");
+        }
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         this.homePageFlightsObjects = new HomePageFlightsObjects(driver);
-        this.util = util;
     }
 
     public void selectFlight(){

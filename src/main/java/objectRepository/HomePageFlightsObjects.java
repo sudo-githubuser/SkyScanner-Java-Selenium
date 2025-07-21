@@ -11,6 +11,9 @@ public class HomePageFlightsObjects {
     private final WebDriver driver;
 
     public HomePageFlightsObjects(WebDriver driver) {
+        if (driver == null) {
+            throw new IllegalArgumentException("WebDriver cannot be null");
+        }
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }

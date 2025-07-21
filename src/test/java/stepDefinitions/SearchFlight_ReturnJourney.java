@@ -4,8 +4,22 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import objectRepository.HomePageFlightsObjects;
+import pageFactory.HomePageFlights;
+import testContext.TestContext;
 
-public class SerachFlight_ReturnJourney {
+public class SearchFlight_ReturnJourney {
+
+    TestContext testContext;
+    HomePageFlights homePageFlights;
+    HomePageFlightsObjects homePageFlightsObjects;
+
+    public SearchFlight_ReturnJourney(TestContext context){
+        testContext = context;
+        homePageFlights = testContext.getPageObjectManager().getHomePageFlights();
+        homePageFlightsObjects = testContext.getPageObjectManager().getHomePageFlightsObjects();
+    }
+
     @Given("User visits skyscanner website")
     public void userVisitsSkyscannerWebsite() {
     }
