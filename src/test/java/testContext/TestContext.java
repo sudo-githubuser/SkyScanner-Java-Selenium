@@ -10,13 +10,8 @@ public class TestContext {
     private final PageObjectManager pageObjectManager;
 
     public TestContext() {
-        this.webDriverManager = new WebDriverManager();
-        this.pageObjectManager = new PageObjectManager(webDriverManager.getDriver());
-    }
-
-    public TestContext(WebDriverManager webDriverManager, PageObjectManager pageObjectManager) {
-        this.webDriverManager = webDriverManager;
-        this.pageObjectManager = pageObjectManager;
+        webDriverManager = new WebDriverManager();
+        pageObjectManager = new PageObjectManager(webDriverManager.getDriver());
     }
 
 }

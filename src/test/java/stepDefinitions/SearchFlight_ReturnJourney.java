@@ -22,6 +22,7 @@ public class SearchFlight_ReturnJourney {
 
     @Given("User visits skyscanner website")
     public void userVisitsSkyscannerWebsite() {
+        homePageFlights.launchUrl();
     }
 
     @And("Selects Flight")

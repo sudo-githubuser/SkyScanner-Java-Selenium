@@ -1,9 +1,12 @@
 package pageFactory;
 
+import dataProvider.ConfigFileReader;
+import managers.FileReaderManager;
 import objectRepository.HomePageFlightsObjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utility.Utils;
 
@@ -14,14 +17,21 @@ public class HomePageFlights {
     WebDriver driver;
     WebDriverWait wait;
     HomePageFlightsObjects homePageFlightsObjects;
+    ConfigFileReader configFileReader;
 
     public HomePageFlights(WebDriver driver){
         if (driver == null) {
             throw new IllegalArgumentException("WebDriver cannot be null");
         }
         this.driver = driver;
+        PageFactory.initElements(driver, this);
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         this.homePageFlightsObjects = new HomePageFlightsObjects(driver);
+        configFileReader = new ConfigFileReader();
+    }
+
+    public void launchUrl(){
+        driver.navigate().to(FileReaderManager.getConfigReader().getApplicationURL());
     }
 
     public void selectFlight(){
